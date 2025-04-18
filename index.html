@@ -2,37 +2,26 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sagar's Homepage</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sagar Patel</title>
   <style>
     :root {
       --bg-light: #FAFAFA;
-      --text-light: #222;
-      --link-light: #007ACC;
-
-      --bg-dark: #121212;
-      --text-dark: #E0E0E0;
-      --link-dark: #4FC3F7;
+      --bg-dark: #111;
+      --text-light: #111;
+      --text-dark: #FAFAFA;
+      --accent: #007ACC;
     }
 
     body {
-      font-family: system-ui, sans-serif;
-      max-width: 600px;
-      margin: 5rem auto;
-      padding: 0 1rem;
-      line-height: 1.6;
+      font-family: "Helvetica Neue", system-ui, sans-serif;
       background-color: var(--bg-light);
       color: var(--text-light);
+      max-width: 700px;
+      margin: 5rem auto;
+      padding: 0 1rem;
       transition: background-color 0.3s ease, color 0.3s ease;
-    }
-
-    a {
-      color: var(--link-light);
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
+      line-height: 1.7;
     }
 
     .dark-mode {
@@ -40,50 +29,125 @@
       color: var(--text-dark);
     }
 
-    .dark-mode a {
-      color: var(--link-dark);
+    h1, h2 {
+      margin-bottom: 0.25em;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .tagline {
+      font-size: 1.2rem;
+      opacity: 0.8;
+      margin-bottom: 2rem;
+    }
+
+    ul.links {
+      list-style: none;
+      padding: 0;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    ul.links li {
+      border: 1px solid #ccc;
+      border-radius: 12px;
+      padding: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    ul.links li:hover {
+      border-color: var(--accent);
+      transform: translateY(-3px);
     }
 
     .toggle-btn {
-      position: fixed;
-      top: 1rem;
-      right: 1rem;
-      background: none;
-      border: 1px solid currentColor;
+      margin-top: 2rem;
       padding: 0.5rem 1rem;
-      border-radius: 5px;
+      background: none;
+      border: 1px solid var(--accent);
+      border-radius: 8px;
+      color: inherit;
       cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .toggle-btn:hover {
+      background: var(--accent);
+      color: white;
+    }
+
+    footer {
+      margin-top: 4rem;
       font-size: 0.9rem;
+      opacity: 0.6;
+      text-align: center;
+    }
+
+    .fade-in {
+      animation: fadeIn 1s ease forwards;
+      opacity: 0;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
     }
   </style>
 </head>
 <body>
-  <button class="toggle-btn" onclick="toggleDarkMode()">🌓 Toggle Theme</button>
+  <main class="fade-in">
+    <h1>Hi, I’m Sagar 👋</h1>
+    <p class="tagline">Engineer. Runner. Chef. Builder. Daydreamer.</p>
 
-  <h1>Hi, I’m Sagar 👋</h1>
-  <p>Welcome to my personal site. I build things with AI, and think deeply about life, language, and limits.</p>
+    <h2>Links</h2>
+    <ul class="links">
+      <li><a href="/resume/resume-main.pdf" target="_blank">📄 View My Resume</a></li>
+      <li><a href="https://github.com/Sagar-py" target="_blank">💻 GitHub Profile</a></li>
+      <li><a href="http://dhokla-express.beehiiv.com/" target="_blank">📰 Dhokla Express (Newsletter)</a></li>
+      <li><a href="mailto:sagarpatel.2512@gmail.com">📬 Contact Me</a></li>
+    </ul>
 
-  <h2>Links</h2>
-  <ul>
-    <li><a href="/resume/resume.pdf" target="_blank">📄 One-page Resume</a></li>
-    <li><a href="https://github.com/Sagar-py">💻 GitHub</a></li>
-    <li><a href="https://dhoklaexpress.substack.com">📰 Dhokla Express (Newsletter)</a></li>
-  </ul>
+    <button class="toggle-btn" onclick="toggleDarkMode()">🌓 Toggle Dark Mode</button>
+
+    <footer>
+      <p>© Sagar Patel • “Discipline is freedom.” — Jocko Willink</p>
+    </footer>
+  </main>
 
   <script>
-    const body = document.body;
+    const toggleDarkMode = () => {
+      document.body.classList.toggle('dark-mode');
+      const mode = document.body.classList.contains('dark-mode') ? 'dark' : 'light';
+      localStorage.setItem('theme', mode);
+    };
 
-    function toggleDarkMode() {
-      body.classList.toggle('dark-mode');
-      const isDark = body.classList.contains('dark-mode');
-      localStorage.setItem('theme', isDark ? 'dark' : 'light');
-    }
-
-    // Load saved theme on page load
     window.onload = () => {
       const savedTheme = localStorage.getItem('theme');
-      if (savedTheme === 'dark') {
-        body.classList.add('dark-mode');
+      if (savedTheme) {
+        if (savedTheme === 'dark') document.body.classList.add('dark-mode');
+      } else {
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.body.classList.add('dark-mode');
+        }
       }
     };
   </script>
