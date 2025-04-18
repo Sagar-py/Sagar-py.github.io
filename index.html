@@ -1,31 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sagar Patel</title>
-    <link rel="stylesheet" href="css/styles.css" />
-  </head>
-  <body>
-    <main class="fade-in">
-      <h1>Hi, I’m Sagar 👋</h1>
-      <p class="tagline">Engineer. Runner. Chef. Builder. Daydreamer.</p>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sagar Patel</title>
+  <style>
+    :root {
+      --primary: #D9A441;
+      --primary-font: #1F1F1F;
+      --secondary: #86A8A5;
+      --secondary-font: #2C2C2C;
+      --bg: #FAFAFA;
+      --border: #E6E4DE;
+      --link: #4C6A92;
+      --heading: #1E1E1E;
+      --body: #2C2C2C;
+      --quote-bg: #F5F3EF;
+      --quote-border: #D9A441;
+      --quote-text: #2C2C2C;
+      --footer-bg: #F8F8F6;
+    }
+  
+    body.dark {
+      --bg: #1F1F1F;
+      --primary-font: #FAFAFA;
+      --secondary-font: #E0E0E0;
+      --body: #E6E6E6;
+      --heading: #FFFFFF;
+      --link: #86A8A5;
+      --footer-bg: #121212;
+    }
+  
+    body {
+      background-color: var(--bg);
+      color: var(--body);
+      font-family: 'Helvetica Neue', sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+    }
+  
+    main {
+      max-width: 640px;
+      margin: 5rem auto;
+      padding: 0 1.5rem;
+    }
+  
+    h1, h2 {
+      color: var(--heading);
+      margin-bottom: 0.5rem;
+    }
+  
+    h1 {
+      font-size: 2.5rem;
+    }
+  
+    h2 {
+      font-size: 1.5rem;
+      margin-top: 2rem;
+    }
+  
+    .tagline {
+      font-size: 1.1rem;
+      color: var(--secondary-font);
+      margin-top: -0.5rem;
+      margin-bottom: 1.5rem;
+    }
+  
+    ul.links {
+      list-style: none;
+      padding: 0;
+      display: grid;
+      gap: 1rem;
+    }
+  
+    ul.links li {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1rem;
+      transition: all 0.3s ease;
+    }
+  
+    ul.links li:hover {
+      border-color: var(--primary);
+      transform: translateY(-3px);
+    }
+  
+    a {
+      color: var(--link);
+      text-decoration: none;
+    }
+  
+    a:hover {
+      text-decoration: underline;
+    }
+  
+    .fade-in {
+      animation: fadeIn 0.8s ease forwards;
+      opacity: 0;
+    }
+  
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+  
+    .toggle-btn {
+      margin-top: 2rem;
+      padding: 0.5rem 1rem;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+  
+    .toggle-btn:hover {
+      opacity: 0.9;
+    }
+  
+    footer {
+      background-color: var(--footer-bg);
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+      margin-top: 4rem;
+      border-top: 1px solid var(--border);
+    }
+  
+    .quote {
+      font-style: italic;
+      color: var(--secondary-font);
+      margin-top: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <main class="fade-in">
+    <h1>Hi, I’m Sagar 👋</h1>
+    <p class="tagline">Engineer. Runner. Chef. Builder. Daydreamer.</p>
 
-      <h2>Links</h2>
-      <ul class="links">
-        <li><a href="/resume/resume-main.pdf" target="_blank">📄 View My Resume</a></li>
-        <li><a href="https://github.com/Sagar-py" target="_blank">💻 GitHub Profile</a></li>
-        <li><a href="http://dhokla-express.beehiiv.com" target="_blank">📰 Dhokla Express (Newsletter)</a></li>
-        <li><a href="/contact.html">📬 Contact Me</a></li>
-      </ul>
+    <h2>Links</h2>
+    <ul class="links">
+      <li><a href="/resume/resume-main.pdf" target="_blank">📄 View My Resume</a></li>
+      <li><a href="https://github.com/Sagar-py" target="_blank">💻 GitHub Profile</a></li>
+      <li><a href="https://dhoklaexpress.substack.com" target="_blank">📰 Dhokla Express (Newsletter)</a></li>
+      <li><a href="contact.html">📬 Contact Me</a></li>
+    </ul>
 
-      <button class="toggle-btn" onclick="toggleDarkMode()">🌓 Toggle Dark Mode</button>
+    <button class="toggle-btn" onclick="toggleDarkMode()">🌓 Toggle Dark Mode</button>
 
-      <footer>
-        <p>© Sagar Patel • “Discipline is freedom.” — Jocko Willink</p>
-      </footer>
-    </main>
+    <footer>
+      <p>© Sagar Patel • “Discipline is freedom.” — Jocko Willink</p>
+    </footer>
+  </main>
 
-    <script src="main.js"></script>
-  </body>
+  <script>
+    const toggleDarkMode = () => {
+      document.body.classList.toggle('dark-mode');
+      const mode = document.body.classList.contains('dark-mode') ? 'dark' : 'light';
+      localStorage.setItem('theme', mode);
+    };
+
+    window.onload = () => {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme) {
+        if (savedTheme === 'dark') document.body.classList.add('dark-mode');
+      } else {
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.body.classList.add('dark-mode');
+        }
+      }
+    };
+  </script>
+</body>
 </html>
