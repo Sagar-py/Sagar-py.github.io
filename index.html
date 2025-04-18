@@ -1,33 +1,134 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sagar Patel</title>
-  <link rel="stylesheet" href="css/style.css" />
-</head>
-<body>
-  <main class="container">
-    <h1>Hi, I’m Sagar 👋</h1>
-    <p class="tagline">Engineer. Runner. Chef. Builder. Daydreamer.</p>
-    <p>Welcome to my personal site. I build things with AI, and think deeply about life, language, and limits.</p>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sagar's Homepage</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #FAFAFA;
+      color: #1F1F1F;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 1rem;
+      line-height: 1.6;
+    }
 
-    <h2>Links</h2>
-    <ul class="link-list">
-      <li><a href="/resume/resume-main.pdf" target="_blank">📄 One-page Resume</a></li>
-      <li><a href="https://github.com/Sagar-py" target="_blank">💻 GitHub</a></li>
-      <li><a href="http://dhokla-express.beehiiv.com/" target="_blank">📰 Dhokla Express (Newsletter)</a></li>
-      <li><a href="contact.html">📬 Contact Me</a></li>
-    </ul>
-  </main>
+    h1 {
+      text-align: center;
+      margin-top: 50px;
+      font-size: 2.5rem;
+    }
+
+    h2 {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 1.5rem;
+      color: #1E1E1E;
+    }
+
+    /* Links */
+    a {
+      color: #4C6A92;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Box Animation Styles */
+    .intro-box {
+      background-color: #FAFAFA;
+      border: 2px solid #D9A441;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      max-width: 700px;
+      margin: 0 auto 30px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.8s ease-in-out forwards;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .intro-box h1 {
+      font-size: 2rem;
+      color: #1F1F1F;
+    }
+
+    .intro-box p {
+      font-size: 1.2rem;
+      color: #2C2C2C;
+      line-height: 1.5;
+    }
+
+    /* Links Box Styles */
+    .links-list {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .links-list li {
+      background-color: #E6E4DE;
+      padding: 1.5rem;
+      border-radius: 8px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .links-list li:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .links-list li a {
+      color: #4C6A92;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      margin-top: 50px;
+      font-size: 0.9rem;
+      color: #99988F;
+    }
+
+    footer a {
+      color: #D9A441;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="intro-box">
+    <h1>Hi, I’m Sagar 👋</h1>
+    <p>Welcome to my personal site. I build things with AI, and think deeply about life, language, and limits.</p>
+  </div>
+
+  <h2>Links</h2>
+  <ul class="links-list">
+    <li><a href="/resume/resume-main.pdf" target="_blank">📄 One-page Resume</a></li>
+    <li><a href="https://github.com/Sagar-py" target="_blank">💻 GitHub</a></li>
+    <li><a href="https://dhokla-express.beehiiv.com/" target="_blank">📰 Dhokla Express</a></li>
+  </ul>
 
   <footer>
-    <p>&copy; 2025 Sagar Patel</p>
-    <p class="quote">“Discipline is freedom.” — Jocko Willink</p>
-    <button id="darkModeToggle">🌓 Toggle Theme</button>
+    <p>© 2025 Sagar Patel | <a href="mailto:sagarpatel.2512@gmail.com">Email me</a> | <em>"Discipline equals freedom." - Jocko Willink</em></p>
   </footer>
-
-  <script src="js/main.js"></script>
 </body>
 </html>
