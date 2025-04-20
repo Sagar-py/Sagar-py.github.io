@@ -1,105 +1,114 @@
 /* style.css */
 
-/* Core palette similar to Dhokla Express */
+/* Light Theme - Core Palette */
 :root {
-    --primary: #D9A441;
-    --primary-font: #1F1F1F;
-    --secondary: #86A8A5;
-    --secondary-font: #2C2C2C;
-    --bg: #FAFAFA;
-    --border: #E6E4DE;
-    --link: #4C6A92;
-  
-    --heading: #1E1E1E;
-    --body: #2C2C2C;
-    --quote-bg: #F5F3EF;
-    --quote-border: #D9A441;
-    --quote-text: #2C2C2C;
-  
-    --footer-bg: #F8F8F6;
-  }
-  
-  /* Dark Mode */
-  body.dark {
-    --bg: #1F1F1F;
-    --primary-font: #FAFAFA;
-    --secondary-font: #E0E0E0;
-    --body: #E6E6E6;
-    --heading: #FFFFFF;
-    --link: #86A8A5;
-    --footer-bg: #121212;
-  }
-  
-  body {
-    background-color: var(--bg);
-    color: var(--body);
-    font-family: 'Helvetica Neue', sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .container {
-    max-width: 640px;
-    margin: 5rem auto;
-    padding: 0 1.5rem;
-  }
-  
-  h1, h2 {
-    color: var(--heading);
-  }
-  
-  .tagline {
-    font-size: 1.1rem;
-    color: var(--secondary-font);
-    margin-top: -0.5rem;
-    margin-bottom: 1rem;
-  }
-  
-  .link-list {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .link-list li {
-    margin-bottom: 0.6rem;
-  }
-  
-  a {
-    color: var(--link);
-    text-decoration: none;
-  }
-  
-  a:hover {
-    text-decoration: underline;
-  }
-  
-  footer {
-    background-color: var(--footer-bg);
-    text-align: center;
-    padding: 2rem 1rem;
-    font-size: 0.9rem;
-    margin-top: 4rem;
-    border-top: 1px solid var(--border);
-  }
-  
-  .quote {
-    font-style: italic;
-    color: var(--secondary-font);
-    margin-top: 0.5rem;
-  }
-  
-  #darkModeToggle {
-    margin-top: 1rem;
-    padding: 0.5rem 1rem;
-    border: none;
-    background: var(--primary);
-    color: white;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  #darkModeToggle:hover {
-    opacity: 0.9;
-  }
-  
+  --primary: #D9A441;
+  --secondary: #86A8A5;
+
+  --bg: #FAFAFA;
+  --text: #000000;
+  --heading: #1E1E1E;
+  --body: #2C2C2C;
+
+  --link: #4C6A92;
+  --border: #E6E4DE;
+
+  --quote-bg: #F5F3EF;
+  --quote-border: #D9A441;
+  --quote-text: #2C2C2C;
+
+  --footer-bg: #F8F8F6;
+}
+
+/* Dark Theme Override */
+body.dark {
+  --bg: #1F1F1F;
+  --text: #FAFAFA;
+  --heading: #FFFFFF;
+  --body: #E6E6E6;
+  --link: #86A8A5;
+  --footer-bg: #121212;
+}
+
+/* Global Styles */
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'Helvetica Neue', sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.container {
+  max-width: 640px;
+  margin: 5rem auto;
+  padding: 0 1.5rem;
+}
+
+h1, h2 {
+  color: var(--heading);
+}
+
+.tagline {
+  font-size: 1.1rem;
+  color: var(--body);
+  margin-top: -0.5rem;
+  margin-bottom: 1rem;
+}
+
+.link-list {
+  list-style: none;
+  padding: 0;
+}
+
+.link-list li {
+  margin-bottom: 0.6rem;
+}
+
+a {
+  color: var(--link);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+footer {
+  background-color: var(--footer-bg);
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 0.9rem;
+  margin-top: 4rem;
+  border-top: 1px solid var(--border);
+}
+
+.quote {
+  font-style: italic;
+  color: var(--quote-text);
+  margin-top: 0.5rem;
+}
+
+/* Theme Toggle Styles */
+.theme-toggle-container {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 999;
+}
+
+#theme-toggle {
+  font-size: 1.5rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+#theme-toggle:hover {
+  transform: rotate(20deg);
+}
+
+
