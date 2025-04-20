@@ -1,14 +1,13 @@
 /* style.css */
 
-/* Light Theme - Core Palette */
+/* Light Theme */
 :root {
   --primary: #D9A441;
   --secondary: #86A8A5;
 
   --bg: #FAFAFA;
-  --text: #000000;
+  --text: #2C2C2C;
   --heading: #1E1E1E;
-  --body: #2C2C2C;
 
   --link: #4C6A92;
   --border: #E6E4DE;
@@ -23,11 +22,11 @@
 /* Dark Theme Override */
 body.dark {
   --bg: #1F1F1F;
-  --text: #FAFAFA;
+  --text: #E6E6E6;
   --heading: #FFFFFF;
-  --body: #E6E6E6;
   --link: #86A8A5;
   --footer-bg: #121212;
+  --quote-text: #CCCCCC;
 }
 
 /* Global Styles */
@@ -53,7 +52,7 @@ h1, h2 {
 
 .tagline {
   font-size: 1.1rem;
-  color: var(--body);
+  color: var(--text);
   margin-top: -0.5rem;
   margin-bottom: 1rem;
 }
@@ -91,7 +90,7 @@ footer {
   margin-top: 0.5rem;
 }
 
-/* Theme Toggle Styles */
+/* Theme Toggle Button */
 .theme-toggle-container {
   position: fixed;
   top: 1rem;
@@ -111,4 +110,21 @@ footer {
   transform: rotate(20deg);
 }
 
+ul.links {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+}
 
+ul.links li {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1rem;
+  transition: all 0.3s ease;
+}
+
+ul.links li:hover {
+  border-color: var(--primary);
+  transform: translateY(-3px);
+}
