@@ -129,6 +129,7 @@ ul.links li:hover {
   transform: translateY(-3px);
 }
 
+/* Go-Home Button */
 .go-home-button {
   background-color: var(--primary);
   color: white;
@@ -140,6 +141,23 @@ ul.links li:hover {
 }
 
 .go-home-button:hover {
+  background-color: var(--secondary);
+  transform: scale(1.1);
+}
+
+/* Newsletter Button */
+.newsletter-button {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  padding: 0.7rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.newsletter-button:hover {
   background-color: var(--secondary);
   transform: scale(1.1);
 }
