@@ -21,9 +21,4 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Hide loader and show content after page is fully loaded
-  window.addEventListener("load", function () {
-    loader.style.display = "none";    // Hide loader
-    content.style.display = "block";   // Show main page
-  });
 });
